@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bingo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div id="top-bar">
+            <h1>bingo card generator</h1>
+        </div>
+    </header>
+
+    <section>
+        <fieldset id="essentials">
+            <legend>bingo card essentials</legend>
+            <label>bingo card title <input id="bingo-title" type="text" class="block" required></label>
+            <label>enter your bingo words ( separate them by a comma )<textarea id="bingo-words"  required class="block" rows="6" placeholder="everyone laughing, plane, whiteboard, etc."></textarea></label>
+        </fieldset>
+
+        <fieldset id='settings'>
+            <legend>settings</legend>
+            <div id="freespot">
+                <label>
+                    free spot?
+                    <select class="block">
+                        <option value="true">yes</option>
+                        <option value="false">no</option>
+                    </select>
+                </label>
+                <label>free spot text<input type="text" class="block" value="free space" id="free-space-text" required></label>
+                <label>
+                    free spot location
+                    <select class="block">
+                        <option value="middle">middle</option>
+                        <option value="random">random</option>
+                    </select>
+                </label>
+            </div>
+            <div id="card-size">
+                <p>choose your size</p>
+                <label>number of rows
+                    <input type="number" class="block" id="rows" value="5" min="3" max="9">
+                </label>
+                <label>number of columns
+                    <input type="number" class="block" id="cols" value="5" min="3" max="9">
+                </label>
+            </div>
+            <div id="generating">
+                <p>generating</p>
+                <label>how many unique boards?
+                    <input type="number" id="quantity" value='1' min="1" max="20">
+                </label>
+            </div>
+        </fieldset>
+    </section>
+
+    <section id="submit-button">
+        <input type="submit" value="generate" id="submit">
+    </section>
+
+    <footer>
+        <div id="footer">
+            <p>created by Krzysztof Szklarski :)</p>
+        </div>
+    </footer>
+</body>
+</html>
