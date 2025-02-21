@@ -44,7 +44,7 @@ function bingo(title, width, height, list){
     }
 
     output = '<table><thead><tr><th colspan="' + width + '">' + title + '</th></tr></thead><tbody>';
-    for(i = 0; i < height; i += 1){
+    for(let i = 0; i < height; i += 1){
         output += '</tr>';
             for(let j = 0; j < width; j += 1)
             {
