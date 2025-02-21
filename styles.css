@@ -126,22 +126,19 @@ p{
 
 td, th {
     text-align:center;
+    border: 2px solid black;
 }
 
 th {
     color:black;
     height:50px;
     font-size:24px;
-    border-bottom: 2px solid black;
 }
 
 td {
     background-color:rgb(240, 240, 240);
     width:85px;
     height:85px;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-collapse: collapse;
     color: black;
 }
 
@@ -159,6 +156,7 @@ table {
     margin-bottom:1em;
     margin-right:1em;
     float:left;
+    border-collapse: collapse;
 
 }
 
