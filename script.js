@@ -45,14 +45,15 @@ function bingo(title, width, height, list){
 
     output = '<table><thead><tr><th colspan="' + width + '">' + title + '</th></tr></thead><tbody>';
     for(let j = 0; j < height; j += 1){
-        output += '</tr>';
+        output += '<tr>';
             for(let k = 0; k < width; k += 1)
             {
-                output += '<td>' + spaces.shift() + '</td';
+                output += '<td>' + spaces.shift() + '</td>';
             }
+        output += '</tr>'
     }
     output += '</tbody></table>'
 
-    document.getElementById('results').append(output);
+    $('#results').append(output);
 
 }
