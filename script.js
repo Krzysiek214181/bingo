@@ -11,15 +11,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //generates n amount of cards
 function generate(){
-    let i;
+    let i, width, height, spaces_required, list;
+
+    width = document.getElementById('cols').value;
+    height = document.getElementById('rows').value;
+    list = format_words(document.getElementById('bingo-words').value);
+
+    $("#results").html("");
+
+    //check if they're enough words to cover the whole board up
+    spaces_required = width * height;
+    if(list.length < spaces_required){
+        alert("you don't have enough words to fill your bingo card")
+    }
 
     for(i = 0; i < document.getElementById('quantity').value; i += 1){
         bingo(
             document.getElementById('bingo-title').value,
-            document.getElementById('cols').value,
-            document.getElementById('rows').value,
+            width, height, 
             format_words(document.getElementById('bingo-words').value)
-        )
+            )
     }
 
     location.href = '#results'
@@ -42,12 +53,7 @@ function format_words(str){
 }
 
 function bingo(title, width, height, list){
-    let output, spaces=[], spaces_required;
-
-    spaces_required = width * height;
-    if(list.length < spaces_required){
-        alert("you don't have enough words to fill your bingo card")
-    }
+    let output, spaces=[];
 
     //creates a random array of numbers (in range 0 to amount of words from the input)
     for(let i = 0; i < width * height; i += 1){
