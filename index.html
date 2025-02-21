@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bingo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 <div class="main-div">
@@ -15,7 +16,7 @@
             </div>
         </header>
 
-        <section>
+        <form id="form">
             <fieldset id="essentials">
                 <legend>bingo card essentials</legend>
                 <label>bingo card title <input id="bingo-title" type="text" class="block" required></label>
@@ -57,11 +58,12 @@
                     </label>
                 </div>
             </fieldset>
-        </section>
+            <section id="submit-button">
+                <input type="submit" value="generate" id="submit">
+            </section>
+        </form>
 
-        <section id="submit-button">
-            <input type="submit" value="generate" id="submit">
-        </section>
+        <div id="results"></div>
     </div>
     
     <footer>
@@ -70,5 +72,6 @@
         </div>
     </footer>
 </div>
+ 
 </body>
 </html>
