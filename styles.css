@@ -161,5 +161,17 @@ table {
 }
 
 #results{
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    width: auto%;
+}
+
+#side-note{
+    font-size: 14px;
+}
+
+#settings{
+    padding-bottom: 10px
 }

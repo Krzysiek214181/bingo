@@ -39,6 +39,24 @@ table {
 
 }
 
-#results{
-    width: 100%;
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    display: block;
+}
+
+/* Two boards per page */
+table {
+    box-sizing: border-box;
+    width: 45%;  /* Adjust width to fit two per row */
+    margin: 2%;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: inline-block;
+    vertical-align: top;
+}
+
+table:nth-child(2n) {
+    page-break-after: after;
 }
