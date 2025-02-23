@@ -11,25 +11,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //generates n amount of cards
 function generate(){
-    let i, width, height, spaces_required, list;
+    let i, list, spaces;
 
-    width = document.getElementById('cols').value;
-    height = document.getElementById('rows').value;
+    //get the values of elements that won't change their value throught the code
+    const title = document.getElementById('bingo-title').value;
+    const width = document.getElementById('cols').value;
+    const height = document.getElementById('rows').value;
+    const freespot = document.getElementById('freespot-yesno').value;
+    const freespot_text = document.getElementById('freespot-text').value;
+    const freespot_random = document.getElementById('freespot-random');
+    //define the center square
+    const center = Math.floor(height / 2) * width + Math.floor(width/2);
+
     list = format_words(document.getElementById('bingo-words').value);
 
     $("#results").html("");
 
     //check if they're enough words to cover the whole board up
-    spaces_required = width * height;
-    if(list.length < spaces_required){
+    const spaces_required = width * height;
+    spaces = list.length;
+    console.log(spaces);
+    if(freespot == 'true'){
+        spaces += 1;
+        console.log(spaces);
+    }
+    if(spaces < spaces_required){
         alert("you don't have enough words to fill your bingo card")
     }
 
     for(i = 0; i < document.getElementById('quantity').value; i += 1){
         bingo(
-            document.getElementById('bingo-title').value,
-            width, height, 
-            format_words(document.getElementById('bingo-words').value)
+            title, width, height, freespot, freespot_text, freespot_random, spaces_required, center,
+            format_words(document.getElementById('bingo-words').value),
             )
     }
 
@@ -52,13 +65,20 @@ function format_words(str){
     return newArray;
 }
 
-function bingo(title, width, height, list){
+function bingo(title, width, height, freespot, freespot_text, freespot_random, spaces_required, center, list){
     let output, spaces=[];
 
     //creates a random array of numbers (in range 0 to amount of words from the input)
     for(let i = 0; i < width * height; i += 1){
+        if(i == center && freespot == 'true'){
+            spaces.push(freespot_text);
+        }
+        else{
         spaces.push(list.splice(Math.floor(Math.random() * list.length), 1));
+        }
     }
+
+
 
     output = '<table><thead><tr><th colspan="' + width + '">' + title + '</th></tr></thead><tbody>';
     for(let j = 0; j < height; j += 1){

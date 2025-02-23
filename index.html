@@ -30,17 +30,17 @@
                 <div id="freespot">
                     <label>
                         free spot? (work in progress)
-                        <select class="block">
+                        <select class="block" id="freespot-yesno">
                             <option value="true">yes</option>
                             <option value="false">no</option>
                         </select>
                     </label>
-                    <label>free spot text<input type="text" class="block" value="free space" id="free-space-text" required></label>
+                    <label>free spot text<input type="text" class="block" value="free space" id="freespot-text" required></label>
                     <label>
                         free spot location
-                        <select class="block">
-                            <option value="middle">middle</option>
-                            <option value="random">random</option>
+                        <select class="block" id="freespot-random">
+                            <option value="false">middle</option>
+                            <option value="true">random</option>
                         </select>
                     </label>
                 </div>
