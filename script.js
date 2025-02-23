@@ -19,7 +19,7 @@ function generate(){
     const height = document.getElementById('rows').value;
     const freespot = document.getElementById('freespot-yesno').value;
     const freespot_text = document.getElementById('freespot-text').value;
-    const freespot_random = document.getElementById('freespot-random');
+    const freespot_random = document.getElementById('freespot-random').value;
     //define the center square
     const center = Math.floor(height / 2) * width + Math.floor(width/2);
 
@@ -30,10 +30,8 @@ function generate(){
     //check if they're enough words to cover the whole board up
     const spaces_required = width * height;
     spaces = list.length;
-    console.log(spaces);
     if(freespot == 'true'){
         spaces += 1;
-        console.log(spaces);
     }
     if(spaces < spaces_required){
         alert("you don't have enough words to fill your bingo card")
@@ -68,9 +66,15 @@ function format_words(str){
 function bingo(title, width, height, freespot, freespot_text, freespot_random, spaces_required, center, list){
     let output, spaces=[];
 
+    //generate a random place for the freespot to be in
+        let random_spot = Math.floor(Math.random() * spaces_required);
+
     //creates a random array of numbers (in range 0 to amount of words from the input)
     for(let i = 0; i < width * height; i += 1){
-        if(i == center && freespot == 'true'){
+        if(i == center && freespot == 'true' && freespot_random == 'false'){
+            spaces.push(freespot_text);
+        }
+        else if(freespot == 'true' && freespot_random == 'true' && i == random_spot){
             spaces.push(freespot_text);
         }
         else{
